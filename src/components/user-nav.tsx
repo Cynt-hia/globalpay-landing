@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, LogOut, User } from "lucide-react";
+import { ChevronDown, User } from "lucide-react";
 import Link from "next/link";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -20,12 +20,9 @@ import {
 } from "@/components/ui/tooltip";
 import UserImage from "../../public/images/profile.png";
 
-import { useAuth } from "@/providers/auth-provider";
 import Image from "next/image";
 
 export function UserNav() {
-  const { logout } = useAuth();
-
   return (
     <DropdownMenu>
       <TooltipProvider disableHoverableContent>
@@ -61,10 +58,6 @@ export function UserNav() {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="hover:cursor-pointer" onClick={logout}>
-          <LogOut className="w-4 h-4 mr-3 text-muted-foreground" />
-          Sign out
-        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
